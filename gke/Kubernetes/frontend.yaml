@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-frontend
+  namespace: ucm-master
+  labels:
+    app: agent-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-frontend
+  template:
+    metadata:
+      labels:
+        app: agent-frontend
+    spec:
+      containers:
+        - name: agent-frontend
+          image: us-central1-docker.pkg.dev/banded-pad-481109-q1/crypto-chatbot/agent-frontend:v1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-frontend
+  namespace: ucm-master
+spec:
+  selector:
+    app: agent-frontend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-backend
+  namespace: ucm-master
+  labels:
+    app: agent-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-backend
+  template:
+    metadata:
+      labels:
+        app: agent-backend
+    spec:
+      containers:
+        - name: agent-backend
+          image: us-central1-docker.pkg.dev/banded-pad-481109-q1/crypto-chatbot/agent-backend:v1
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 250m
+              memory: 512Mi
+            limits:
+              cpu: 250m
+              memory: 512Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-backend
+  namespace: ucm-master
+spec:
+  selector:
+    app: agent-backend
+  ports:
+    - port: 80
+      targetPort: 80
+  type: ClusterIP
