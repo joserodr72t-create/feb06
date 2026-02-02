@@ -1,0 +1,39 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: cluster-ucm
+  region: us-east-1
+  version: "1.33"
+  tags:
+    karpenter.sh/discovery: cluster-ucm
+    created-by: eks-workshop-v2
+    
+iam:
+  withOIDC: true
+vpc:
+  cidr: 10.42.0.0/16
+  clusterEndpoints:
+    privateAccess: true
+    publicAccess: true
+managedNodeGroups:
+  - name: default
+    desiredCapacity: 2
+    minSize: 1
+    maxSize: 3
+    instanceType: t3.medium
+    privateNetworking: true
+    releaseVersion: "1.33.0-20250704"
+    updateConfig:
+      maxUnavailablePercentage: 70
+    labels:
+      workshop-default: "yes"
+addons:
+  - name: vpc-cni
+    version: 1.19.2
+    resolveConflicts: overwrite
+remoteNetworkConfig:
+  remoteNodeNetworks:
+    - cidrs: ["10.52.0.0/16"]
+  remotePodNetworks:
+    - cidrs: ["10.53.0.0/16"]
