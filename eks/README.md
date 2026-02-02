@@ -1,4 +1,4 @@
-# Despliegue de Aplicaciones una aplicación de e-commerce en Amazon EKS
+# Despliegue de una aplicación de e-commerce en Amazon EKS
 
 
 ---
