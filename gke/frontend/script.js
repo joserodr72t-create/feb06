@@ -1,4 +1,4 @@
-// Configuration 
+// Configuration - Empty string means requests go through nginx proxy
 const API_URL = '';
 
 // DOM Elements
