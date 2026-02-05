@@ -20,7 +20,7 @@ La aplicación consta de dos componentes:
 
 ### 1.1 Instalación de Docker
 
-Conectarse a la instancia de Compute Engine e instalar Docker (en caso de no estar disponible, en CE debiera):
+Conectarse a la instancia de Compute Engine e instalar Docker (en caso de no estar disponible, en CE debiera estarlo):
 
 ```bash
 sudo apt install docker
@@ -29,8 +29,6 @@ sudo usermod -aG docker $USER
 sudo systemctl start docker
 sudo systemctl enable docker
 ```
-
-> **Nota**: Después de añadir el usuario al grupo docker, es necesario cerrar sesión y volver a conectarse para que los cambios surtan efecto.
 
 ### 1.2 Autenticación y Variables de Entorno
 
