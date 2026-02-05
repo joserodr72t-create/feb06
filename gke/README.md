@@ -216,6 +216,8 @@ kubectl apply -f namespace.yaml
 
 ### 6.4 Desplegar Backend y Frontend
 
+Nota: Antes debéis modificar los manifiestos para incluir los enlaces a vuestras imagenes.
+
 ```bash
 kubectl apply -f backend.yaml
 kubectl apply -f frontend.yaml
