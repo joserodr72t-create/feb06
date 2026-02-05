@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: agent-frontend
-          image: us-central1-docker.pkg.dev/banded-pad-481109-q1/crypto-chatbot-1/agent-frontend:v1
+          image: us-central1-docker.pkg.dev/xxxxxxxxxxxxxxxxxxx/crypto-chatbot-1/agent-frontend:v1
           ports:
             - containerPort: 80
           resources:
