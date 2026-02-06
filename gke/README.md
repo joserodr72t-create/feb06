@@ -91,7 +91,7 @@ gcloud auth configure-docker ${REGION}-docker.pkg.dev
 Antes de construir, editar el archivo `.env` en la carpeta correspondiente:
 
 ```bash
-cd ~/feb06/gke/frontend
+cd ~/feb06/gke/backend
 # Editar .env y añadir tu GOOGLE_API_KEY
 ```
 
